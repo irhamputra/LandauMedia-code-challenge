@@ -1,7 +1,6 @@
 export const userPostPhoto = () => {
   return async (dispatch: any, getState: object): Promise<any> => {
     // getState from global store
-
     dispatch({ type: "USER_POST_PHOTO" });
   };
 };
