@@ -2,17 +2,22 @@ import React, { useEffect } from "react";
 import "./App.css";
 import Header from "./components/header";
 import Lists from "./components/lists";
-import { initDB } from "./database/localDatabase";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllPost } from "./redux/actions";
 
 const App: React.FC = () => {
+  const { posts } = useSelector((state: any) => state);
+  const dispatch = useDispatch();
+  const FETCH_DATA = () => dispatch(getAllPost());
+
   useEffect(() => {
-    initDB();
-  });
+    FETCH_DATA();
+  }, []);
 
   return (
     <div className="App">
       <Header />
-      <Lists />
+      <Lists data={posts} />
     </div>
   );
 };

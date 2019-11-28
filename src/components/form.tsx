@@ -11,10 +11,14 @@ const SearchBar = styled.div`
 
 const Input = styled.input`
   text-align: center;
+  padding: 10px;
+  border: none;
+  font-size: 18px;
   &::placeholder {
+    width: 100%;
+    height: 100%;
     color: lightgray;
     text-align: center;
-    border: 1px solid whitesmoke;
     line-height: 30px;
   }
 `;
@@ -34,7 +38,10 @@ const Form: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
   return (
     <SearchBar>
       {isVisible && (
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form
+          style={{ width: "100%", height: 30 }}
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <Input
             type="text"
             ref={register}

@@ -1,3 +1,5 @@
+import { db } from "../database/localDatabase";
+
 export const userPostPhoto = () => {
   return async (dispatch: any, getState: object): Promise<any> => {
     // getState from global store
@@ -8,7 +10,6 @@ export const userPostPhoto = () => {
 export const userAddComment = () => {
   return async (dispatch: any, getState: object): Promise<any> => {
     // getState
-
     dispatch({ type: "USER_ADD_COMMENT" });
   };
 };
@@ -29,4 +30,8 @@ export const register = () => {
   return async (dispatch: any, getState: object): Promise<any> => {
     dispatch({ type: "USER_REGISTER" });
   };
+};
+
+export const getAllPost = () => {
+  return { type: "FETCH_DATA", payload: db.getState().posts };
 };
