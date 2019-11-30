@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-regular-svg-icons/faUser";
 
 const Image = styled.img`
   border-radius: 50px;
@@ -11,11 +13,13 @@ const Avatar: React.FC<{ imageURL?: string; width?: number }> = ({
   width
 }) => {
   return (
-    <Image
-      alt="cat"
-      src={imageURL ? imageURL : "https://cataas.com/cat"}
-      width={width + "%"}
-    />
+    <>
+      {imageURL ? (
+        <Image alt="cat" src={imageURL} width={width + "%"} />
+      ) : (
+        <FontAwesomeIcon icon={faUser} size="lg" />
+      )}
+    </>
   );
 };
 

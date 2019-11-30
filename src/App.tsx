@@ -8,10 +8,9 @@ import { getAllPost } from "./redux/actions";
 const App: React.FC = () => {
   const { posts } = useSelector((state: any) => state);
   const dispatch = useDispatch();
-  const FETCH_DATA = () => dispatch(getAllPost());
 
   useEffect(() => {
-    FETCH_DATA();
+    dispatch(getAllPost());
   }, []);
 
   return (
