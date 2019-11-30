@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { Carousel } from "react-responsive-carousel";
 import Avatar from "./avatar";
+import Comments from "./comments";
+import CarouselImage from "./carousel";
 
 const List = styled.div`
   padding: 10px;
@@ -43,16 +44,7 @@ const Lists: React.FC<{ data: any }> = ({ data }) => {
             <Username>{post.username}</Username>
           </User>
           {post.postsURL.length > 0 ? (
-            <Carousel
-              showThumbs={false}
-              showIndicators={post.postsURL.length > 1}
-              showArrows={false}
-              showStatus={false}
-            >
-              {post.postsURL.map((photo: string, i: number) => {
-                return <img src={photo} key={i} alt={i.toString()} />;
-              })}
-            </Carousel>
+            <CarouselImage postsURL={post}/>
           ) : (
             <img src={post.postsURL[0]} alt={post.id} width="100%" />
           )}
@@ -67,13 +59,7 @@ const Lists: React.FC<{ data: any }> = ({ data }) => {
               <strong>{post.likes} meowed</strong>
             </div>
             <strong>{post.username}</strong> <span>{post.description}</span>
-            {post.comments.map((com: any) => {
-              return (
-                <div key={com.id}>
-                  <strong>{com.username}</strong> <span>{com.comment}</span>
-                </div>
-              );
-            })}
+            <Comments postComment={post} />
           </div>
         </Images>
       );
