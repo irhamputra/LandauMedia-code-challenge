@@ -58,9 +58,7 @@ const Lists: React.FC<{ data: any }> = ({ data }) => {
               </span>{" "}
               <strong>like me</strong>
             </Button>
-            <div>
-              <strong>{post.likes} meowed</strong>
-            </div>
+            <div>{post.likes > 0 && <strong>{post.likes} meowed</strong>}</div>
             <strong>{post.username}</strong> <span>{post.description}</span>
             <Comments postComment={post} />
           </div>
