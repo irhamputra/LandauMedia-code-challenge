@@ -32,6 +32,12 @@ export const register = () => {
   };
 };
 
+export const likePost = (id: number) => {
+  return async (dispatch: any) => {
+    dispatch({ type: "LIKED_PHOTO", payload: id  });
+  };
+};
+
 export const getAllPost = () => {
   return { type: "FETCH_DATA", payload: db.getState().posts };
 };

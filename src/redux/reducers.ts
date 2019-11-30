@@ -1,6 +1,6 @@
 export const initialState = {
   user: {},
-  posts: []
+  posts: [] as any
 };
 
 export const reducers = (state = initialState, action: any) => {
@@ -19,6 +19,16 @@ export const reducers = (state = initialState, action: any) => {
 
     case "FETCH_DATA":
       return { ...state, posts: action.payload };
+
+    case "LIKED_PHOTO":
+      return {
+        ...state,
+        likes: state.posts.forEach((el: any) => {
+          if (el.id === action.payload) {
+            el.likes += 1;
+          }
+        })
+      };
 
     default:
       return state;

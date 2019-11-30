@@ -3,6 +3,8 @@ import styled from "styled-components";
 import Avatar from "./avatar";
 import Comments from "./comments";
 import CarouselImage from "./carousel";
+import { useDispatch } from "react-redux";
+import { likePost } from "../redux/actions";
 
 const List = styled.div`
   padding: 10px;
@@ -35,6 +37,7 @@ const Button = styled.button`
 `;
 
 const Lists: React.FC<{ data: any }> = ({ data }) => {
+  const dispatch = useDispatch();
   const renderList = () => {
     return data.map((post: any) => {
       return (
@@ -44,12 +47,12 @@ const Lists: React.FC<{ data: any }> = ({ data }) => {
             <Username>{post.username}</Username>
           </User>
           {post.postsURL.length > 0 ? (
-            <CarouselImage postsURL={post}/>
+            <CarouselImage postsURL={post} />
           ) : (
             <img src={post.postsURL[0]} alt={post.id} width="100%" />
           )}
           <div>
-            <Button onClick={() => console.log("like me")}>
+            <Button onClick={() => dispatch(likePost(post.id))}>
               <span role="img" aria-label="emoji-like">
                 😻
               </span>{" "}

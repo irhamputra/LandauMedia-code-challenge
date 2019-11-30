@@ -1,5 +1,5 @@
-import { Carousel } from "react-responsive-carousel";
 import React from "react";
+import { Carousel } from "react-responsive-carousel";
 
 interface ICarousel {
   postsURL: string[] | any;
