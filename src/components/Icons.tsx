@@ -1,18 +1,13 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons/faSearch";
-import { faTimes } from "@fortawesome/free-solid-svg-icons/faTimes";
 
-const Icons: React.FC<{ isVisible: boolean; onClick?: any }> = ({
+const Icons: React.FC<{ isVisible?: boolean; onClick?: any }> = ({
   isVisible,
   onClick
 }) => {
   return (
-    <FontAwesomeIcon
-      icon={isVisible ? faTimes : faSearch}
-      size="lg"
-      onClick={onClick}
-    />
+    <button style={{ fontSize: 16, margin: 0, padding: 0 }} onClick={onClick}>
+      {isVisible ? "❌" : "🔍"}
+    </button>
   );
 };
 
