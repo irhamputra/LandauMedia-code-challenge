@@ -3,6 +3,7 @@ import Form from "./form";
 import styled from "styled-components";
 import Avatar from "./avatar";
 import Icons from "./Icons";
+import { useSelector } from "react-redux";
 
 const Menu = styled.div`
   display: flex;
@@ -18,6 +19,7 @@ const Menu = styled.div`
 
 const Header: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
+
   const onClickIcon = () => {
     setIsVisible(!isVisible);
   };

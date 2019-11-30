@@ -1,7 +1,7 @@
 import React from "react";
 import useForm from "react-hook-form";
 import styled from "styled-components";
-import { db } from "../database/localDatabase";
+import { useSelector } from "react-redux";
 
 const SearchBar = styled.div`
   display: flex;
@@ -23,16 +23,17 @@ const Input = styled.input`
   }
 `;
 
-const Form: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
-  const { handleSubmit, register, errors, reset } = useForm();
+const Form: React.FC<{ isVisible?: boolean }> = ({ isVisible }) => {
+  const { handleSubmit, register, errors } = useForm();
+  const state = useSelector((state: any) => state.posts);
+
+  React.useEffect(() => {
+    console.log(state);
+  }, []);
 
   const onSubmit = (data: object) => {
-    console.log(data);
-    db.get("posts")
-      // @ts-ignore
-      .push(data)
-      .write();
-    reset();
+    // get some data who logged in
+    const newComment = {};
   };
 
   return (
