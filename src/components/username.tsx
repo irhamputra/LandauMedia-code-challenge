@@ -1,7 +1,6 @@
 import React from "react";
 import useForm from "react-hook-form";
 import styled from "styled-components";
-import { useSelector } from "react-redux";
 import * as Yup from "yup";
 import Login, { Button } from "./login";
 
@@ -39,11 +38,6 @@ const UsernameForm: React.FC = () => {
   const { handleSubmit, register } = useForm({
     validationSchema: formValidation
   });
-  const state = useSelector((state: any) => state.posts);
-
-  React.useEffect(() => {
-    console.log(state);
-  }, []);
 
   const onSubmit = (data: object) => {
     // get some data who logged in

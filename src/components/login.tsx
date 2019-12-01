@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Modal from "react-modal";
+import { createBreakpoint } from "react-use";
 
 export const Button = styled.button`
   font-size: 18px;
@@ -13,6 +14,8 @@ Modal.setAppElement("#root");
 
 const Login: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const useBreakpoint = createBreakpoint({ XL: 1280, L: 768, S: 414 });
+  const breakpoint = useBreakpoint();
 
   const customStyles = {
     content: {
@@ -34,11 +37,13 @@ const Login: React.FC = () => {
 
   return (
     <div id="modal">
-      <Button onClick={onOpenModal}>
-        <span role="img" aria-label="login-emoji">
-          🚪
-        </span>
-      </Button>
+      {breakpoint === "S" && (
+        <Button onClick={onOpenModal}>
+          <span role="img" aria-label="login-emoji">
+            🚪
+          </span>
+        </Button>
+      )}
       <Modal style={customStyles} isOpen={isOpen} onRequestClose={onCloseModal}>
         <Button onClick={onCloseModal}>
           <span role="img" aria-label="close-emoji">

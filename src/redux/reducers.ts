@@ -1,6 +1,7 @@
 export const initialState = {
   user: {},
-  posts: []
+  posts: [],
+  users: []
 };
 
 interface IPost {
@@ -27,8 +28,11 @@ export const reducers = (state = initialState, action: any) => {
     case "POST_PHOTO":
       return { ...state, post: action.payload };
 
-    case "FETCH_DATA":
+    case "FETCH_POSTS":
       return { ...state, posts: action.payload };
+
+    case "FETCH_USERS":
+      return { ...state, users: action.payload };
 
     case "LIKED_PHOTO":
       return {

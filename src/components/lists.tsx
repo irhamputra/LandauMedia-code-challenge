@@ -6,6 +6,7 @@ import CarouselImage from "./carousel";
 import { useDispatch } from "react-redux";
 import { likePost } from "../redux/actions";
 import CommentForm from "./comment";
+import { createBreakpoint } from "react-use";
 
 const List = styled.div`
   padding: 0;
@@ -14,6 +15,7 @@ const List = styled.div`
 
   @media screen and (max-width: 414px) {
     margin: 0;
+    width: 100%;
   }
 `;
 
@@ -54,13 +56,18 @@ const Counter = styled.div`
 
 const Lists: React.FC<{ data: any }> = ({ data }) => {
   const dispatch = useDispatch();
+  const useBreakpoint = createBreakpoint({ XL: 1280, L: 768, S: 414 });
+  const breakpoint = useBreakpoint();
 
   const renderList = () => {
     return data.map((post: any) => {
       return (
         <Images key={post.id}>
           <User>
-            <Avatar imageURL={post.imageURL} width={15} />
+            <Avatar
+              imageURL={post.imageURL}
+              width={breakpoint === "S" ? 12 : 8}
+            />
             <Username>{post.username}</Username>
           </User>
           {post.postsURL.length > 0 ? (

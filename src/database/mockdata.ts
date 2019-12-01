@@ -200,3 +200,54 @@ export const DATA = [
     ]
   }
 ];
+
+export const USER = [
+  {
+    id: 10,
+    username: "Your Story",
+    email: "oreo_the_cat@example.com",
+    imageURL: "https://cataas.com/cat?type=sq"
+  },
+  {
+    id: 20,
+    username: "white_coffee_cat",
+    email: "white_coffee_cat@exampe.com",
+    imageURL: "https://cataas.com/cat/cute?type=sq"
+  },
+  {
+    id: 30,
+    username: "madflufs",
+    email: "madflufs@example.com",
+    imageURL: "https://cataas.com/cat/eat?type=sq"
+  },
+  {
+    id: 40,
+    username: "mugimeshi",
+    email: "mugimeshi@example.com",
+    imageURL: "https://cataas.com/cat/smile?type=sq"
+  },
+  {
+    id: 50,
+    username: "smudge_cat",
+    email: "smudge_cat@example.com",
+    imageURL: "https://cataas.com/cat/sleepy?type=sq"
+  },
+  {
+    id: 60,
+    username: "apollo_cat",
+    email: "apollo_cat@example.com",
+    imageURL: "https://cataas.com/cat/meme?type=sq"
+  },
+  {
+    id: 70,
+    username: "smoothiecat",
+    email: "smoothiecat@example.com",
+    imageURL: "https://cataas.com/cat/fun?type=sq"
+  },
+  {
+    id: 80,
+    username: "curlysnow",
+    email: "curlysnow@example.com",
+    imageURL: "https://cataas.com/cat/sleep?type=sq"
+  }
+];

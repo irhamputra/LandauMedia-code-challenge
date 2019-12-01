@@ -49,6 +49,10 @@ export const likePost = (id: number) => {
   };
 };
 
+export const getAllUser = () => {
+  return { type: "FETCH_USERS", payload: db.getState().userCollection };
+};
+
 export const getAllPost = () => {
-  return { type: "FETCH_DATA", payload: db.getState().postsCollection };
+  return { type: "FETCH_POSTS", payload: db.getState().postsCollection };
 };
