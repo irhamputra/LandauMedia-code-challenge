@@ -1,4 +1,4 @@
-# InstaCat (Testaufgabe)
+# InstaMeow (Testaufgabe)
 
 A social media for a cat lovers
 
@@ -9,3 +9,7 @@ A social media for a cat lovers
 - [x] Style
 - [x] Modal
 - [x] Get posts collection
+- [x] Get users collection
+- [x] Stories
+
+[Demo](https://instameow.now.sh/)
