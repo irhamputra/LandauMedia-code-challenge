@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import useForm from "react-hook-form";
 import styled from "styled-components";
 import { uuid } from "../lib/uuid";
@@ -7,11 +7,11 @@ import { userAddComment } from "../redux/actions";
 
 const Input = styled.input`
   border: none;
-  width: 100%;
+  width: 95%;
   font-size: 16px;
 
   &::placeholder {
-    width: 100%;
+    width: 95%;
     height: 100%;
     color: lightgray;
     line-height: 30px;
