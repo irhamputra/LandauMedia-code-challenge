@@ -10,6 +10,7 @@ import CommentForm from "./comment";
 const List = styled.div`
   padding: 0;
   margin-left: 15%;
+  width: 50%;
 
   @media screen and (max-width: 414px) {
     margin: 0;
@@ -19,11 +20,19 @@ const List = styled.div`
 const User = styled.div`
   display: flex;
   align-items: center;
-  margin: 10px;
+  margin: 10px 0;
+
+  @media screen and (max-width: 414px) {
+    margin: 10px;
+  }
 `;
 
 const Wrapper = styled.div`
-  padding: 10px;
+  margin: 10px 0;
+
+  @media screen and (max-width: 414px) {
+    margin: 10px;
+  }
 `;
 
 const Images = styled.div`
@@ -37,6 +46,10 @@ const Username = styled.span`
 
 const Button = styled.button`
   font-size: 16px;
+`;
+
+const Counter = styled.div`
+  margin: 5px 0;
 `;
 
 const Lists: React.FC<{ data: any }> = ({ data }) => {
@@ -62,7 +75,9 @@ const Lists: React.FC<{ data: any }> = ({ data }) => {
               </span>{" "}
               <strong>like me</strong>
             </Button>
-            <div>{post.likes > 0 && <strong>{post.likes} meowed</strong>}</div>
+            <Counter>
+              {post.likes > 0 && <strong>{post.likes} meowed</strong>}
+            </Counter>
             <strong>{post.username}</strong> <span>{post.description}</span>
             <Comments postComment={post} />
             <CommentForm />

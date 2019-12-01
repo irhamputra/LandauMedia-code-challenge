@@ -9,6 +9,8 @@ export const Button = styled.button`
   height: 100%;
 `;
 
+Modal.setAppElement("#root");
+
 const Login: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -18,7 +20,7 @@ const Login: React.FC = () => {
       left: "50%",
       right: "auto",
       bottom: "auto",
-      transform: "translate(-50%, -50%)",
+      transform: "translate(-50%, -50%)"
     }
   };
 
@@ -31,7 +33,7 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div>
+    <div id="modal">
       <Button onClick={onOpenModal}>
         <span role="img" aria-label="login-emoji">
           🚪
