@@ -37,13 +37,8 @@ export const reducers = (state = initialState, action: any) => {
     case "LIKED_PHOTO":
       return { ...state, posts: action.payload };
 
-    case "UPDATE_COMMENT":
-      return {
-        ...state,
-        comments: state.posts.forEach((el: IPost) => {
-          console.log(el.comments);
-        })
-      };
+    case "USER_ADD_COMMENT":
+      return { ...state, posts: action.payload };
 
     default:
       return state;

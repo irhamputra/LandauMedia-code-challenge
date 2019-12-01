@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import useForm from "react-hook-form";
 import styled from "styled-components";
 import { uuid } from "../lib/uuid";
+import { useDispatch } from "react-redux";
+import { userAddComment } from "../redux/actions";
 
 const Input = styled.input`
   border: none;
@@ -17,19 +19,31 @@ const Input = styled.input`
   }
 `;
 
+interface IComment {
+  id?: number;
+  username?: string;
+  comment?: Record<string, any>;
+}
+
 const CommentForm: React.FC<{ comments: any }> = ({ comments }) => {
-  const [comment, setComment] = useState(null);
   const { handleSubmit, register, reset } = useForm();
+  const dispatch = useDispatch();
+  const dispatchComment = (id: number, comment: IComment) =>
+    dispatch(userAddComment(id, comment));
 
-  React.useEffect(() => {
-    console.log(comments);
-  }, []);
+  const onSubmit = (data: IComment) => {
+    if (!data.comment) console.error("Comment ga ada");
 
-  const onSubmit = (data: object) => {
-    console.log(data);
-    // TODO: dispatch comment here and userID and postID
+    const newComment = {
+      id: uuid,
+      username: "luna_rose",
+      comment: data.comment
+    };
+
+    dispatchComment(comments.id, newComment);
     reset();
   };
+
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>

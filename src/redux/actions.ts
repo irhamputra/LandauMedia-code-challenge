@@ -13,15 +13,26 @@ export const userPostPhoto = () => {
   };
 };
 
-export const userAddComment = (postID: number, comment: object) => {
-  return async (dispatch: any, getState: object): Promise<any> => {
-    // getState
-    dispatch({ type: "USER_ADD_COMMENT" });
-  };
-};
+export const userAddComment = (id: number, userComment: object) => {
+  return async (dispatch: any): Promise<any> => {
+    const posts: any[] = db.get("postsCollection").value();
 
-export const updateComment = (commentID: number, comment: object) => {
-  return { type: "UPDATE_COMMENT", payload: { commentID, comment } };
+    posts.forEach((el: any) => {
+      if (el.id === id) {
+        db.get("postsCollection")
+          // @ts-ignore
+          .find({ id })
+          .get("comments")
+          .push(userComment)
+          .write();
+      }
+    });
+
+    dispatch({
+      type: "USER_ADD_COMMENT",
+      payload: db.getState().postsCollection
+    });
+  };
 };
 
 export const userDeleteComment = () => {
@@ -49,9 +60,9 @@ export const register = () => {
 
 export const likePost = (id: number) => {
   return async (dispatch: any) => {
-    const postOne = db.get("postsCollection").value();
+    const posts = db.get("postsCollection").value();
 
-    postOne.forEach((el: any) => {
+    posts.forEach((el: any) => {
       if (el.id === id) {
         db.get("postsCollection")
           // @ts-ignore
