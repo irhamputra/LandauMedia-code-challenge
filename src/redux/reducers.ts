@@ -1,7 +1,17 @@
 export const initialState = {
   user: {},
-  posts: [] as any
+  posts: []
 };
+
+interface IPost {
+  id: number;
+  likes: number;
+  comments: string[];
+  description: string;
+  imageURL: string;
+  postURL: string[];
+  username: string;
+}
 
 export const reducers = (state = initialState, action: any) => {
   switch (action.type) {
@@ -23,7 +33,7 @@ export const reducers = (state = initialState, action: any) => {
     case "LIKED_PHOTO":
       return {
         ...state,
-        likes: state.posts.forEach((el: any) => {
+        likes: state.posts.forEach((el: IPost) => {
           if (el.id === action.payload) {
             el.likes += 1;
           }

@@ -2,7 +2,7 @@ export const DATA = [
   {
     id: 1,
     username: "oreo_the_cat",
-    imageURL: "https://cataas.com/cat?type=haha",
+    imageURL: "https://cataas.com/cat?type=sq",
     postsURL: ["https://cataas.com/cat?size=10&type=sq"],
     description: "Welcome to my cat pages, love meow!",
     likes: 0,

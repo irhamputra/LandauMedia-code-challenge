@@ -7,8 +7,8 @@ import { useDispatch } from "react-redux";
 import { likePost } from "../redux/actions";
 
 const List = styled.div`
-  padding: 10px;
-  margin: 0 34%;
+  padding: 0;
+  margin-left: 15%;
 
   @media screen and (max-width: 414px) {
     margin: 0;
@@ -17,10 +17,12 @@ const List = styled.div`
 
 const User = styled.div`
   display: flex;
-  width: 100%;
-  height: 100%;
   align-items: center;
-  margin-bottom: 10px;
+  margin: 10px;
+`;
+
+const Wrapper = styled.div`
+  padding: 10px;
 `;
 
 const Images = styled.div`
@@ -38,6 +40,7 @@ const Button = styled.button`
 
 const Lists: React.FC<{ data: any }> = ({ data }) => {
   const dispatch = useDispatch();
+
   const renderList = () => {
     return data.map((post: any) => {
       return (
@@ -51,7 +54,7 @@ const Lists: React.FC<{ data: any }> = ({ data }) => {
           ) : (
             <img src={post.postsURL[0]} alt={post.id} width="100%" />
           )}
-          <div>
+          <Wrapper>
             <Button onClick={() => dispatch(likePost(post.id))}>
               <span role="img" aria-label="emoji-like">
                 😻
@@ -61,7 +64,7 @@ const Lists: React.FC<{ data: any }> = ({ data }) => {
             <div>{post.likes > 0 && <strong>{post.likes} meowed</strong>}</div>
             <strong>{post.username}</strong> <span>{post.description}</span>
             <Comments postComment={post} />
-          </div>
+          </Wrapper>
         </Images>
       );
     });
