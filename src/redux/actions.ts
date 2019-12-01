@@ -13,11 +13,15 @@ export const userPostPhoto = () => {
   };
 };
 
-export const userAddComment = (postID: number) => {
+export const userAddComment = (postID: number, comment: object) => {
   return async (dispatch: any, getState: object): Promise<any> => {
     // getState
     dispatch({ type: "USER_ADD_COMMENT" });
   };
+};
+
+export const updateComment = (commentID: number, comment: object) => {
+  return { type: "UPDATE_COMMENT", payload: { commentID, comment } };
 };
 
 export const userDeleteComment = () => {
@@ -45,7 +49,19 @@ export const register = () => {
 
 export const likePost = (id: number) => {
   return async (dispatch: any) => {
-    dispatch({ type: "LIKED_PHOTO", payload: id });
+    const postOne = db.get("postsCollection").value();
+
+    postOne.forEach((el: any) => {
+      if (el.id === id) {
+        db.get("postsCollection")
+          // @ts-ignore
+          .find({ id })
+          .update("likes", (n: number) => n + 1)
+          .write();
+      }
+    });
+
+    dispatch({ type: "LIKED_PHOTO", payload: db.getState().postsCollection });
   };
 };
 

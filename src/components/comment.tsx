@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import useForm from "react-hook-form";
 import styled from "styled-components";
+import { uuid } from "../lib/uuid";
 
 const Input = styled.input`
   border: none;
@@ -16,8 +17,14 @@ const Input = styled.input`
   }
 `;
 
-const CommentForm: React.FC = () => {
+const CommentForm: React.FC<{ comments: any }> = ({ comments }) => {
+  const [comment, setComment] = useState(null);
   const { handleSubmit, register, reset } = useForm();
+
+  React.useEffect(() => {
+    console.log(comments);
+  }, []);
+
   const onSubmit = (data: object) => {
     console.log(data);
     // TODO: dispatch comment here and userID and postID

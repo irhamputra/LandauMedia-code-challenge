@@ -35,12 +35,13 @@ export const reducers = (state = initialState, action: any) => {
       return { ...state, users: action.payload };
 
     case "LIKED_PHOTO":
+      return { ...state, posts: action.payload };
+
+    case "UPDATE_COMMENT":
       return {
         ...state,
-        likes: state.posts.forEach((el: IPost) => {
-          if (el.id === action.payload) {
-            el.likes += 1;
-          }
+        comments: state.posts.forEach((el: IPost) => {
+          console.log(el.comments);
         })
       };
 

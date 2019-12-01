@@ -87,7 +87,7 @@ const Lists: React.FC<{ data: any }> = ({ data }) => {
             </Counter>
             <strong>{post.username}</strong> <span>{post.description}</span>
             <Comments postComment={post} />
-            <CommentForm />
+            <CommentForm comments={post.comments} />
           </Wrapper>
         </Images>
       );
