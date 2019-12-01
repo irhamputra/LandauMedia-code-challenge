@@ -5,6 +5,7 @@ import Comments from "./comments";
 import CarouselImage from "./carousel";
 import { useDispatch } from "react-redux";
 import { likePost } from "../redux/actions";
+import CommentForm from "./comment";
 
 const List = styled.div`
   padding: 0;
@@ -64,6 +65,7 @@ const Lists: React.FC<{ data: any }> = ({ data }) => {
             <div>{post.likes > 0 && <strong>{post.likes} meowed</strong>}</div>
             <strong>{post.username}</strong> <span>{post.description}</span>
             <Comments postComment={post} />
+            <CommentForm />
           </Wrapper>
         </Images>
       );

@@ -35,7 +35,7 @@ const formValidation = Yup.object().shape({
     .required()
 });
 
-const Form: React.FC = () => {
+const UsernameForm: React.FC = () => {
   const { handleSubmit, register } = useForm({
     validationSchema: formValidation
   });
@@ -74,4 +74,4 @@ const Form: React.FC = () => {
   );
 };
 
-export default Form;
+export default UsernameForm;

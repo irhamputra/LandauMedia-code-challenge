@@ -1,5 +1,11 @@
 import { db } from "../database/localDatabase";
 
+export const getUser = () => {
+  return async (dispatch: any) => {
+    dispatch({ type: "GET_USER" });
+  };
+};
+
 export const userPostPhoto = () => {
   return async (dispatch: any, getState: object): Promise<any> => {
     // getState from global store
@@ -7,7 +13,7 @@ export const userPostPhoto = () => {
   };
 };
 
-export const userAddComment = () => {
+export const userAddComment = (postID: number) => {
   return async (dispatch: any, getState: object): Promise<any> => {
     // getState
     dispatch({ type: "USER_ADD_COMMENT" });
@@ -28,13 +34,18 @@ export const login = () => {
 
 export const register = () => {
   return async (dispatch: any, getState: object): Promise<any> => {
+    // get value user from getState().user
+
+    // set as newUser object
+
+    // write to db
     dispatch({ type: "USER_REGISTER" });
   };
 };
 
 export const likePost = (id: number) => {
   return async (dispatch: any) => {
-    dispatch({ type: "LIKED_PHOTO", payload: id  });
+    dispatch({ type: "LIKED_PHOTO", payload: id });
   };
 };
 

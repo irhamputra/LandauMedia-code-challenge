@@ -1,5 +1,5 @@
 import React from "react";
-import Form from "./form";
+import UsernameForm from "./username";
 import styled from "styled-components";
 
 const Menu = styled.div`
@@ -35,7 +35,7 @@ const Header: React.FC = () => {
         </span>
         <h2>InstaMeow</h2>
       </Logo>
-      <Form />
+      <UsernameForm />
     </Menu>
   );
 };
