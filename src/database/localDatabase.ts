@@ -8,7 +8,8 @@ export const db = low(adapter);
 // init new post
 export const initDB = () => {
   console.log("init DB");
-  db.defaults({ posts: DATA, user: [] }).write();
+  db.defaults({ postsCollection: DATA, userCollection: [] }).write();
+  db.defaults({ loggedIn: {} }).write();
 };
 
 export const postPhoto = (data: object) => {
@@ -34,7 +35,7 @@ export const postComment = (data: object) => {
 export const userRegister = (data: object) => {
   return async () => {
     await db
-      .get("posts")
+      .get("postsCollection")
       // @ts-ignore
       .push(data)
       .write();

@@ -1,7 +1,6 @@
 import React from "react";
 import Form from "./form";
 import styled from "styled-components";
-import Avatar from "./avatar";
 
 const Menu = styled.div`
   display: flex;
@@ -31,7 +30,9 @@ const Header: React.FC = () => {
   return (
     <Menu>
       <Logo>
-        <Avatar />
+        <span role="img" aria-label="emoji-login">
+          😺
+        </span>
         <h2>InstaMeow</h2>
       </Logo>
       <Form />

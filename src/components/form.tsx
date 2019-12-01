@@ -3,6 +3,7 @@ import useForm from "react-hook-form";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
 import * as Yup from "yup";
+import Login, { Button } from "./login";
 
 const SearchBar = styled.div`
   display: flex;
@@ -28,13 +29,6 @@ const Input = styled.input`
   }
 `;
 
-const Button = styled.button`
-  font-size: 18px;
-  margin: 0;
-  padding: 0;
-  height: 100%;
-`;
-
 const formValidation = Yup.object().shape({
   username: Yup.string()
     .min(2)
@@ -56,10 +50,6 @@ const Form: React.FC = () => {
     console.log(data);
   };
 
-  const onLogin = () => {
-    console.log("login");
-  };
-
   return (
     <SearchBar>
       <form
@@ -79,11 +69,7 @@ const Form: React.FC = () => {
         </Button>
       </form>
 
-      <Button onClick={onLogin}>
-        <span role="img" aria-label="login-emoji">
-          🚪
-        </span>
-      </Button>
+      <Login />
     </SearchBar>
   );
 };

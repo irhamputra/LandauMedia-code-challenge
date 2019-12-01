@@ -14,22 +14,7 @@ const Avatar: React.FC<{ imageURL?: string; width?: number }> = ({
   imageURL,
   width
 }) => {
-  return (
-    <>
-      {imageURL ? (
-        <Image alt="cat" src={imageURL} width={width + "%"} />
-      ) : (
-        <button
-          style={{ fontSize: 16 }}
-          onClick={() => console.log("login modal")}
-        >
-          <span role="img" aria-label="emoji-login">
-            😺
-          </span>
-        </button>
-      )}
-    </>
-  );
+  return <Image alt="cat" src={imageURL} width={width + "%"} />;
 };
 
 export default Avatar;

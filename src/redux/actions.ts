@@ -39,5 +39,5 @@ export const likePost = (id: number) => {
 };
 
 export const getAllPost = () => {
-  return { type: "FETCH_DATA", payload: db.getState().posts };
+  return { type: "FETCH_DATA", payload: db.getState().postsCollection };
 };
